@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="css/main.css" rel="stylesheet" />
+
+    <!-- Include the core AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+    <!-- Include the AngularJS routing library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  </head>
+  <body ng-app="GalleryApp"> <!--Change name of  ng-app here put module name -->
+    <div class="header">
+        <div class="container">
+          <h1>App Market</h1> <!-- anything -->
+        </div>
+      </div>
+
+      <div class="main" ng-controller="MainController">
+        <div class="container">
+           <div class="card" ng-repeat="app in apps"><!-- data of controller-->
+            <app-info info="app"></app-info><!--data of controller passedd to info of app-info directive to make $scope.info -->
+             <install-app></install-app> <!--ontroller directive displaying it's own data -->
+          </div>
+        </div>
+      </div>
+
+
+    <!--View -->
+    <div ng-view></div>
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/HomeController.js"></script>
+    <script src="js/controllers/PhotoController.js"></script>
+    <script src="js/controllers/MainController.js"></script>
+
+    <!-- Directives -->
+        <script src="js/directives/appInfo.js"></script>
+        <script src="js/directives/installApp.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/photos.js"></script>
+
+  </body>
+</html>
